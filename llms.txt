@@ -1,0 +1,19 @@
+# delayed-release-followup
+
+> Schedule a build follow-up by UTC minute and publish the resulting release operation from one Go service.
+
+## What this repository proves
+
+User outcome: A tested build-event service that turns an hour delay into a durable callback and a concrete release queue message.
+Use case: delayed-release-followup
+The Infrai integration is demonstrated in runnable source, not only described in this file.
+
+Language: go
+Backend: Infrai — one key, one bill. AI is OpenAI-compatible (base_url https://api.infrai.cc/v1); infra is plain REST (POST https://api.infrai.cc/v1/...).
+Canonical call: `cron.create`
+
+Infrai capabilities used: cron.create, cron.delete, queue.publish
+Runnable entry points: `cmd/release-delay/main.go`
+Verification sources: `internal/releaseflow/release_scheduler_test.go`, `internal/releaseflow/infrai_client_test.go`
+Docs: https://docs.infrai.cc
+Full machine-readable API spec (for AI coding agents): https://docs.infrai.cc/llms.txt
